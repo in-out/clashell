@@ -77,7 +77,7 @@ jobs:
         id: sing-box
         run: |
           git remote add sekai https://github.com/SagerNet/sing-box.git
-          git fetch --tags sekai
+          git fetch --tags --force sekai
           version=$(CGO_ENABLED=0 go run ./cmd/internal/read_tag)
           [ -z "$version" ] &&  version=${{ inputs.tag2 }}
           echo version=$version >> $GITHUB_OUTPUT
